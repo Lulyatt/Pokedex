@@ -44,7 +44,11 @@ export default function PokeCard(props) {
 
             const skillData = {
                 name: move,
-                description
+                description,
+                power: moveData.power,
+                accuracy: moveData.accuracy,
+                pp: moveData.pp,
+                type: moveData.type.name
             }
             setSkill(skillData)
             c[move] = skillData
@@ -120,6 +124,12 @@ export default function PokeCard(props) {
                     <div>
                         <h6>Description</h6>
                         <p>{skill.description}</p>
+                    </div>
+                    <div className='moveDescription'>
+                        <p>Power <b>{skill.power ?? "N/A"}</b></p>
+                        <p>Accuracy <b>{skill.accuracy}</b></p>
+                        <p>PP <b>{skill.pp}</b></p>
+                        <p>Type <b>{skill.type.charAt(0).toUpperCase() + skill.type.slice(1)}.</b></p>
                     </div>
                 </Modal>
             )}
